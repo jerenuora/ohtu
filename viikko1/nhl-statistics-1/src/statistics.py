@@ -1,4 +1,3 @@
-from player_reader import PlayerReader
 
 
 def sort_by_points(player):
