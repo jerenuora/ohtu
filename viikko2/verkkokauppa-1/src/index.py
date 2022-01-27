@@ -6,11 +6,7 @@ from viitegeneraattori import Viitegeneraattori
 
 def main():
     kirjanpito = Kirjanpito()
-    kauppa = Kauppa(
-        Varasto(kirjanpito),
-        Pankki(kirjanpito),
-        Viitegeneraattori()
-        )
+    kauppa = Kauppa()
 
 
     # kauppa hoitaa yhden asiakkaan kerrallaan seuraavaan tapaan:
