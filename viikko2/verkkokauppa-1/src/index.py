@@ -5,10 +5,11 @@ from pankki import Pankki
 from viitegeneraattori import Viitegeneraattori
 
 def main():
+    kirjanpito = Kirjanpito()
     kauppa = Kauppa(
-        Varasto.get_instance(),
-        Pankki.get_instance(),
-        Viitegeneraattori.get_instance()
+        Varasto(kirjanpito),
+        Pankki(kirjanpito),
+        Viitegeneraattori()
         )
 
 
@@ -29,7 +30,7 @@ def main():
     kauppa.tilimaksu("Arto Vihavainen", "3425-1652")
 
     # kirjanpito
-    for tapahtuma in Kirjanpito.get_instance().tapahtumat:
+    for tapahtuma in kirjanpito.tapahtumat:
         print(tapahtuma)
 
 
