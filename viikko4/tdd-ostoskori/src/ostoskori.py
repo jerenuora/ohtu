@@ -8,8 +8,8 @@ class Ostoskori:
 
     def tavaroita_korissa(self):
         summa = 0
-        for i in self.kori:
-            summa += i.lukumaara()
+        for ostos in self.kori:
+            summa += ostos.lukumaara()
 
         return summa
         # kertoo korissa olevien tavaroiden lukumäärän
@@ -18,8 +18,8 @@ class Ostoskori:
 
     def hinta(self):
         summa = 0
-        for i in self.kori:
-            summa += i.hinta()
+        for ostos in self.kori:
+            summa += ostos.hinta()
         return summa
         # kertoo korissa olevien ostosten yhteenlasketun hinnan
 
