@@ -47,7 +47,7 @@ class IntJoukko:
     @staticmethod
     def yhdiste(eka, toka):
         uusi_joukko = IntJoukko()
-        
+
         for alkio in eka.to_int_list() + toka.to_int_list():
             uusi_joukko.lisaa(alkio)
 
@@ -74,6 +74,6 @@ class IntJoukko:
         return uusi_joukko
 
     def __str__(self):
-        int_list_as_str = [str(int) for int in self.to_int_list()]
+        int_list_as_str = [str(int) for int in self.to_int_list()] 
 
         return "{" + ", ".join(int_list_as_str) + "}"
