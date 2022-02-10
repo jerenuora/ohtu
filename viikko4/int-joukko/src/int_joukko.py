@@ -75,5 +75,5 @@ class IntJoukko:
 
     def __str__(self):
         int_list_as_str = [str(int) for int in self.to_int_list()]  
-
+        print("muutos")
         return "{" + ", ".join(int_list_as_str) + "}"
