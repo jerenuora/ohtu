@@ -61,20 +61,21 @@ class HasFewerThan:
         return player_value < self._value
 
 class QueryBuilder:
-    def __init__(self, stack = [], query = All()):
-        self.stack = stack
-        self.stack.append(query)
-    
+    def __init__(self,  queries = []):
+        self.queries = queries
+
     def build(self):
-        print(self.stack)
-        return And(*self.stack)
+        res = And(*self.queries)
+        return res
     
     def playsIn(self, team):
-        return QueryBuilder(self.stack, PlaysIn(team))
+        return QueryBuilder(self.queries + [PlaysIn(team)])
     
     def hasAtLeast(self, val, attr):
-        return QueryBuilder(self.stack, HasAtLeast(val, attr))
+        return QueryBuilder(self.queries + [HasAtLeast(val, attr)])
         
     def hasFewerThan(self, val, attr):
-        return QueryBuilder(self.stack, HasFewerThan(val, attr))
+        return QueryBuilder(self.queries + [HasFewerThan(val, attr)])
     
+    def oneOf(self, m1, m2):
+        return QueryBuilder([Or(m1, m2)])
